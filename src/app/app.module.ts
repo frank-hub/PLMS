@@ -7,6 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import {AngularFireModule} from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FIREBASE_CREDENTIALS } from './firebase.credential';
+import { AngularFirestore } from 'angularfire2/firestore';
 @NgModule({
   declarations: [
     MyApp,
@@ -14,6 +18,9 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    // import AngularFireDatabaseModule for database interraction
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -23,6 +30,7 @@ import { HomePage } from '../pages/home/home';
   ],
   providers: [
     StatusBar,
+    AngularFirestore,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

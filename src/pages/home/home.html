@@ -7,8 +7,29 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item>
+    <ion-label floating>Customer Name</ion-label>
+    <ion-input type="text" [(ngModel)]="customerInterface.customer_ref"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Latitude</ion-label>
+    <ion-input type="text" [(ngModel)]="customerInterface.latitute"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Longitute</ion-label>
+    <ion-input type="text" [(ngModel)]="customerInterface.longitude"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Status</ion-label>
+    <ion-input type="text" [(ngModel)]="customerInterface.noti_status"></ion-input>
+  </ion-item>
+
+  <button ion-button block (click)="addCustomer(customerInterface)">Add Customer</button>
+  <ion-item>
+  <ion-card  *ngFor="let customers of customer">
+    <ion-card-header>
+       {{customers.customer_ref}}
+    </ion-card-header>
+  </ion-card>
+  </ion-item>
 </ion-content>
